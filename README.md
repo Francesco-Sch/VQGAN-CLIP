@@ -261,7 +261,7 @@ optional arguments:
   -opt, --optimiser {Adam,AdamW,Adagrad,Adamax,DiffGrad,AdamP,RAdam,RMSprop}
                         Optimiser
   -o OUTPUT, --output OUTPUT
-                        Output file. Don't use file ending. Output files are saved as png.
+                        Output file. Do not use file ending. Output files are saved as png.
   -vid, --video         Create video frames?
   -zvid, --zoom_video   Create zoom video?
   -zs ZOOM_START, --zoom_start ZOOM_START
