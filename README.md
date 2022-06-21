@@ -6,8 +6,8 @@ A repo for running VQGAN+CLIP locally. This started out as a Katherine Crowson V
 
 Original notebook: [![Open In Colab][colab-badge]][colab-notebook]
 
-[colab-notebook]: <https://colab.research.google.com/drive/1ZAus_gn2RhTZWzOWUpPERNC0Q8OhZRTZ>
-[colab-badge]: <https://colab.research.google.com/assets/colab-badge.svg>
+[colab-notebook]: https://colab.research.google.com/drive/1ZAus_gn2RhTZWzOWUpPERNC0Q8OhZRTZ
+[colab-badge]: https://colab.research.google.com/assets/colab-badge.svg
 
 Some example images:
 
@@ -17,12 +17,12 @@ Some example images:
 
 Environment:
 
-* Tested on Ubuntu 20.04
-* GPU: Nvidia RTX 3090
-* Typical VRAM requirements:
-  * 24 GB for a 900x900 image
-  * 10 GB for a 512x512 image
-  * 8 GB for a 380x380 image
+- Tested on Ubuntu 20.04
+- GPU: Nvidia RTX 3090
+- Typical VRAM requirements:
+  - 24 GB for a 900x900 image
+  - 10 GB for a 512x512 image
+  - 8 GB for a 380x380 image
 
 You may also be interested in [CLIP Guided Diffusion](https://github.com/nerdyrodent/CLIP-Guided-Diffusion)
 
@@ -51,7 +51,7 @@ Install other required Python packages:
 pip install ftfy regex tqdm omegaconf pytorch-lightning IPython kornia imageio imageio-ffmpeg einops torch_optimizer
 ```
 
-Or use the ```requirements.txt``` file, which includes version numbers.
+Or use the `requirements.txt` file, which includes version numbers.
 
 Clone required repositories:
 
@@ -74,7 +74,8 @@ mkdir checkpoints
 curl -L -o checkpoints/vqgan_imagenet_f16_16384.yaml -C - 'https://heibox.uni-heidelberg.de/d/a7530b09fed84f80a887/files/?p=%2Fconfigs%2Fmodel.yaml&dl=1' #ImageNet 16384
 curl -L -o checkpoints/vqgan_imagenet_f16_16384.ckpt -C - 'https://heibox.uni-heidelberg.de/d/a7530b09fed84f80a887/files/?p=%2Fckpts%2Flast.ckpt&dl=1' #ImageNet 16384
 ```
-Note that users of ```curl``` on Microsoft Windows should use double quotes.
+
+Note that users of `curl` on Microsoft Windows should use double quotes.
 
 The `download_models.sh` script is an optional way to download a number of models. By default, it will download just 1 model.
 
@@ -84,8 +85,9 @@ By default, the model .yaml and .ckpt files are expected in the `checkpoints` di
 See <https://github.com/CompVis/taming-transformers> for more information on datasets and models.
 
 Video guides are also available:
-* Linux - https://www.youtube.com/watch?v=1Esb-ZjO7tw
-* Windows - https://www.youtube.com/watch?v=XH7ZP0__FXs
+
+- Linux - https://www.youtube.com/watch?v=1Esb-ZjO7tw
+- Windows - https://www.youtube.com/watch?v=XH7ZP0__FXs
 
 ### Using an AMD graphics card
 
@@ -154,7 +156,6 @@ Sets of text prompts can be created using the caret symbol, in order to generate
 python generate.py -p "A painting of a sunflower|photo:-1 ^ a painting of a rose ^ a painting of a tulip ^ a painting of a daisy flower ^ a photograph of daffodil" -cpe 1500 -zvid -i 6000 -zse 10 -vl 20 -zsc 1.005 -opt Adagrad -lr 0.15 -se 6000
 ```
 
-
 ## "Style Transfer"
 
 An input image with style text and a low number of iterations can be used create a sort of "style transfer" effect. For example:
@@ -181,11 +182,13 @@ To use `zoom.sh`, specifying a text prompt, output filename and number of frames
 ```sh
 ./zoom.sh "A painting of a red telephone box spinning through a time vortex" Telephone.png 150
 ```
-If you don't have ImageMagick installed, you can install it with ```sudo apt install imagemagick```
+
+If you don't have ImageMagick installed, you can install it with `sudo apt install imagemagick`
 
 <img src="./samples/zoom.gif" width="256px"></img>
 
 There is also a simple zoom video creation option available. For example:
+
 ```sh
 python generate.py -p "The inside of a sphere" -zvid -i 4500 -zse 20 -vl 10 -zsc 0.97 -opt Adagrad -lr 0.15 -se 4500
 ```
@@ -258,7 +261,7 @@ optional arguments:
   -opt, --optimiser {Adam,AdamW,Adagrad,Adamax,DiffGrad,AdamP,RAdam,RMSprop}
                         Optimiser
   -o OUTPUT, --output OUTPUT
-                        Output file
+                        Output file. Don't use file ending. Output files are saved as png.
   -vid, --video         Create video frames?
   -zvid, --zoom_video   Create zoom video?
   -zs ZOOM_START, --zoom_start ZOOM_START
@@ -300,7 +303,6 @@ For example:
 
 Your request doesn't fit into your GPU's VRAM. Reduce the image size and/or number of cuts.
 
-
 ## Citations
 
 ```bibtex
@@ -313,7 +315,7 @@ Your request doesn't fit into your GPU's VRAM. Reduce the image size and/or numb
 
 ```bibtex
 @misc{esser2020taming,
-      title={Taming Transformers for High-Resolution Image Synthesis}, 
+      title={Taming Transformers for High-Resolution Image Synthesis},
       author={Patrick Esser and Robin Rombach and Björn Ommer},
       year={2020},
       eprint={2012.09841},
